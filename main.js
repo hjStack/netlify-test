@@ -32,7 +32,19 @@ for (let i = 1; i < tabs.length; i++) {
 
 addButton.addEventListener("click", addTask);
 
+taskInput.addEventListener("keydown", function (event) {
+  if (event.keyCode === 13) {
+    // enter
+    addTask();
+  }
+});
+// 👆 추가 완료!
+
 function addTask() {
+  if (taskInput.value.trim() === "") {
+    return;
+  }
+
   let task = {
     id: randomIdGenerate(),
     taskContent: taskInput.value,
@@ -41,6 +53,8 @@ function addTask() {
   taskList.push(task);
   console.log(taskList);
   render();
+
+  taskInput.value = "";
 }
 
 function render() {
