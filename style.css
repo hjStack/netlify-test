@@ -1,0 +1,184 @@
+/* 기본 폰트 설정 (깔끔한 Pretendard 폰트 적용) */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+
+body {
+  margin: 0;
+  /* 배경 이미지 적용 (원하시는 이미지 경로로 유지하셔도 됩니다) */
+  background-color: #f5f6f8;
+  background-image: url("backgroundImage/background.jpeg");
+  background-size: cover;
+  background-position: center;
+  font-family: "Pretendard", sans-serif;
+
+  /* 앱을 화면 중앙에 배치 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* 메인 앱 컨테이너 */
+.container {
+  background-color: rgba(255, 255, 255, 0.95);
+  width: 100%;
+  max-width: 500px; /* 너무 넓어지지 않게 고정 */
+  min-height: 70vh;
+  border-radius: 20px; /* 둥근 모서리 */
+  padding: 2em;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* 부드러운 그림자 */
+}
+
+h1 {
+  text-align: center;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 1em;
+}
+
+/* 입력 영역 */
+.input-area {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+#task-input {
+  flex: 1;
+  padding: 15px;
+  border: none;
+  border-radius: 12px;
+  background-color: #f0f2f5;
+  font-size: 16px;
+  outline: none;
+}
+
+#task-input:focus {
+  background-color: #e4e6e9;
+}
+
+#add-button {
+  width: 55px;
+  border: none;
+  border-radius: 12px;
+  background-color: #0d6efd;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#add-button:hover {
+  background-color: #0b5ed7;
+}
+
+/* 탭 영역 */
+.task-tabs {
+  display: flex;
+  position: relative;
+  border-bottom: 1px solid #e0e0e0; /* 배경 회색 밑줄을 1px로 가장 얇게 변경 */
+  margin-bottom: 20px;
+  padding: 0;
+}
+
+.task-tabs div {
+  padding: 12px 20px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #777;
+  transition: color 0.3s;
+}
+
+.task-tabs div:hover {
+  color: #000;
+}
+
+/* 움직이는 언더라인 */
+/* 움직이는 언더라인 */
+#under-line {
+  height: 2px; /* 선 두께 (1px 또는 2px 추천) */
+  background-color: #0d6efd;
+  position: absolute;
+  width: 0;
+  left: 0;
+  bottom: -2px;
+  border-radius: 2px;
+  padding: 0; /* 🔥 이 줄을 꼭 추가해 주세요! 탭의 패딩을 무시하게 만듭니다. */
+  transition:
+    left 0.3s ease-in-out,
+    width 0.3s ease-in-out;
+}
+
+/* 할일 아이템 디자인 */
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  margin-bottom: 12px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  border: 1px solid #f4f4f4;
+  transition: transform 0.2s;
+}
+
+.task:hover {
+  transform: translateY(-2px);
+}
+
+.task-done {
+  text-decoration: line-through;
+  color: #adb5bd; /* 끝난 일은 흐리게 */
+}
+
+/* 체크, 삭제 버튼 디자인 */
+.button-area {
+  display: flex;
+  gap: 8px;
+}
+
+.button-area button {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+/* 체크 버튼 (초록색) */
+.button-area button:first-child {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+.button-area button:first-child:hover {
+  background-color: #c8e6c9;
+}
+
+/* 삭제 버튼 (빨간색) */
+.button-area button:last-child {
+  background-color: #ffebee;
+  color: #c62828;
+}
+.button-area button:last-child:hover {
+  background-color: #ffcdd2;
+}
+
+/* h1 아래쪽 여백을 조금 줄여서 날짜와 덜 떨어져 보이게 수정 */
+h1 {
+  text-align: center;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 5px; /* 1em 에서 5px로 수정 */
+}
+
+/* 새로 추가한 날짜 텍스트 디자인 */
+#today-date {
+  text-align: center;
+  color: #888; /* 은은한 회색 */
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 25px;
+  margin-top: 0;
+}
